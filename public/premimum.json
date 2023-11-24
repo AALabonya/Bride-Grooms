@@ -1,0 +1,50 @@
+[
+    {
+      "biodataId": 1,
+      "biodataType": "Male",
+      "profileImage": "https://i.ibb.co/3WvJF2J/doc2.jpg",
+      "permanentDivision": "Dhaka",
+      "age": 23,
+      "occupation": "Student"
+    },
+    {
+      "biodataId": 2,
+      "biodataType": "Female",
+      "profileImage": "https://i.ibb.co/JK4PvQH/2.jpg",
+      "permanentDivision": "Chattagram",
+      "age": 25,
+      "occupation": "Engineer"
+    },
+    {
+      "biodataId": 3,
+      "biodataType": "Male",
+      "profileImage": "https://i.ibb.co/Gcn70ND/doc6.jpg",
+      "permanentDivision": "Sylhet",
+      "age": 28,
+      "occupation": "Doctor"
+    },
+    {
+      "biodataId": 4,
+      "biodataType": "Female",
+      "profileImage": "https://i.ibb.co/3BW0dny/doc3.jpg",
+      "permanentDivision": "Rangpur",
+      "age": 30,
+      "occupation": "Teacher"
+    },
+    {
+      "biodataId": 5,
+      "biodataType": "Male",
+      "profileImage": "https://i.ibb.co/KWgB7KT/d0c5.jpg",
+      "permanentDivision": "Barisal",
+      "age": 26,
+      "occupation": "Entrepreneur"
+    },
+    {
+      "biodataId": 6,
+      "biodataType": "Female",
+      "profileImage": "https://i.ibb.co/MDXyqmp/Trendy-Clothing-hoode.jpg",
+      "permanentDivision": "Khulna",
+      "age": 24,
+      "occupation": "Artist"
+    }
+  ]

@@ -3,12 +3,12 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SocialLogin = () => {
-    const {googleSignIn} =useAuth()
+    const {signInWithGoogle} =useAuth()
     const axiosPublic=useAxiosPublic()
     const navigate = useNavigate()
 
 const handleGoogleSignIn=()=>{
-    googleSignIn()
+    signInWithGoogle()
     .then(result=>{
         console.log(result.user);
         const userInfo ={
