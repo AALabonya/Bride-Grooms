@@ -1,8 +1,9 @@
+import Navbar from "../component/Shared/Navbar/Navbar";
 
 const MainLayout = () => {
     return (
         <div>
-            this is my layout
+            <Navbar/>
         </div>
     );
 };
