@@ -10,7 +10,7 @@ import useAuth from "../hooks/useAuth";
 import "./dashboard.css"
 const Dashboard = () => {
     const isAdmin = false
-    const {user, logOut} =useAuth()
+    const { logOut} =useAuth()
     return (
         <div className="flex " >
             {/* dash board side bar  */}

@@ -2,16 +2,18 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-// import UseAxiosSecure from "../../../hooks/UseAxiosSecure";
-// import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 const image_hosting_key= import.meta.env.VITE_IMGBB_API_KEY;
-console.log(image_hosting_key);
 const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 const EditBiodata = () => {
     const {register, handleSubmit,reset} = useForm();
   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
+  const {user} = useAuth()
     const onSubmit = async(data) => {
-        console.log(data);
         //image upload to imgbb and then get an url
 
         const imageFile ={image: data.image[0]}
@@ -20,27 +22,54 @@ const EditBiodata = () => {
                 "content-type":"multipart/form-data"
             }
         })
-             console.log(await res.data);
-
-        const bioDataInfo ={
-            name: data.name,
-            biodataType: data.biodataType,
-            dod: data.dob,
-            height: data.height,
-            weight: data.weight,
-            occupation: data.occupation,
-            race: data.race,
-            fathersName: data.fathersName,
-            age: parseInt(data.age),
-            permanentDivision: data.permanentDivision,
-            expectedPartnerAge: parseInt(data.expectedPartnerAge),
-            mothersName: data.mothersName,
-            expectedPartnerHeight: data.expectedPartnerHeight,
-            expectedPartnerWeight: data.expectedPartnerWeight,
-            contactEmail: data.contactEmail,
-            mobileNumber: data.mobileNumber,
-        }
-        console.log(bioDataInfo);
+    
+             const image = res.data.data.display_url
+             if(res.data.success){
+                const bioDataInfo ={
+                    name: data.name,
+                    biodataType: data.biodataType,
+                    date: data.date,
+                    height: data.height,
+                    weight: data.weight,
+                    occupation: data.occupation,
+                    race: data.race,
+                    fathersName: data.fathersName,
+                    age: parseInt(data.age),
+                    permanentDivision: data.permanentDivision,
+                    presentDivision: data.presentDivision,
+                    expectedPartnerAge: parseInt(data.expectedPartnerAge),
+                    mothersName: data.mothersName,
+                    expectedPartnerHeight: data.expectedPartnerHeight,
+                    expectedPartnerWeight: data.expectedPartnerWeight,
+                    contactEmail: data.contactEmail,
+                    mobileNumber: data.mobileNumber,
+                    image,
+                    userEmail:user ?.email
+                }
+                console.log(bioDataInfo);
+                const bioInfo =await axiosSecure.post(`/allBioData?email=${user?.email}`, bioDataInfo)
+                .then(bioInfo=>{
+                    console.log(bioInfo.data);
+                    if(bioInfo.data.insertedId){
+                        reset()
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `${data.name}`,
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                    }else{
+                        Swal.fire({
+                            icon: "error",
+                            title: `${bioInfo.data.message}`,
+                            text:"sorry",
+                        })
+                    }
+                })
+             }
+         
+        
     };
 
     // const onSubmit = async(data) => {
@@ -118,7 +147,7 @@ const EditBiodata = () => {
                                 Date of Birth
                             </label>
                             <input
-                                {...register('dob', { required: true })}
+                                {...register('date', { required: true })}
                                 type="date"
                                 className="mt-1 p-2 w-full border rounded"
                             />

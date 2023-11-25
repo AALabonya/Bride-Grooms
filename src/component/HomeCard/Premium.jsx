@@ -4,7 +4,7 @@
 const Premium = ({premium}) => {
     const{biodataId,biodataType,profileImage,permanentDivision,age,occupation} = premium ||{}
     return (
-        <div className="flex flex-col max-w-lg p-4 space-y-4 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+        <div className="flex flex-col max-w-lg p-4 space-y-4 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 bg-white">
         <div className="flex space-x-4">
             <img alt="" src={profileImage} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
             <div className="flex flex-col space-y-1">

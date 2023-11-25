@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const SocialLogin = () => {
     const {signInWithGoogle} =useAuth()
@@ -12,12 +13,24 @@ const handleGoogleSignIn=()=>{
     .then(result=>{
         console.log(result.user);
         const userInfo ={
+            name:result.user?.displayName,
             email:result.user?.email,
+            
             
         }
         axiosPublic.post("/users", userInfo)
         .then(res=>{
             console.log(res.data);
+            if(res.data){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'loggedIn successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate('/');
+            }
             navigate("/")
         })
     })

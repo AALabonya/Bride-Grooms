@@ -21,9 +21,7 @@ const HowItWorks = () => {
 								<img src="https://rn53themes.net/themes/matrimo/images/icon/rings.png" alt="" className="h-32 dark:bg-gray-500 aspect-video mr-2" />
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 									<h3 className="text-3xl font-bold">Register</h3>
-									<span className="text-xs uppercase dark:text-gray-400">TIMING: 7:00 PM </span>
-
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+								   <p className="my-6 dark:text-gray-400">To register, visit the platform&apos;s website or app, fill in required fields such as email, username, and password, then follow the verification process, enabling access to the platform&apos;s features and services.</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
@@ -31,8 +29,9 @@ const HowItWorks = () => {
 								<img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-2.png" alt="" className="h-32 dark:bg-gray-500 aspect-video" />
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 									<h3 className="text-3xl font-bold">Find your Match</h3>
-									<span className="text-xs uppercase dark:text-gray-400">TIMING: 7:00 PM </span>
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+									
+									<p className="my-6 dark:text-gray-400">
+										To find your match, utilize search filters or algorithms on dating platforms, specifying preferences like age, location, interests, and values to narrow down compatible profiles. Review suggested matches based on these criteria, increasing the likelihood of finding someone who aligns with your preferences</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
@@ -40,9 +39,15 @@ const HowItWorks = () => {
 								<img src="https://rn53themes.net/themes/matrimo/images/icon/love-birds.png" alt="" className="h-32 dark:bg-gray-500 aspect-video mr-2" />
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 									<h3 className="text-3xl font-bold">Send Interest</h3>
-									<span className="text-xs uppercase dark:text-gray-400">TIMING: 7:00 PM </span>
+									
 
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+									<p className="my-6 dark:text-gray-400">To express interest, typically on social platforms or dating sites, click or tap on the designated button or icon associated with the user&apos;s profile. This action notifies the user of your interest in connecting or engaging further.
+
+
+
+
+
+									</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
@@ -50,8 +55,7 @@ const HowItWorks = () => {
 								<img src="https://rn53themes.net/themes/matrimo/images/icon/network.png" alt="" className="h-32 dark:bg-gray-500 aspect-video" />
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900 ">
 									<h3 className="text-3xl font-bold">Get Profile Information</h3>
-									<span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+									<p className="my-6 dark:text-gray-400">To gather profile information, access a user&apos;s account settings or profile page, where details like name, contact information, preferences, and additional data might be stored. Alternatively, request users to fill out forms or questionnaires to acquire their relevant profile information.</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
@@ -60,8 +64,7 @@ const HowItWorks = () => {
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 
 									<h3 className="text-3xl font-bold">Start Meetups</h3>
-									<span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+									<p className="my-6 dark:text-gray-400">To start meetups, define your purpose, choose a location, set a date, and invite participants with clear communication. Create engaging activities or discussions to encourage interaction and foster a welcoming environment for everyone attending.</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
@@ -69,17 +72,15 @@ const HowItWorks = () => {
 								<img src="https://rn53themes.net/themes/matrimo/images/icon/wedding-couple.png" alt="" className="h-32 dark:bg-gray-500 aspect-video" />
 								<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
 									<h3 className="text-3xl font-bold">Getting Marriage</h3>
-									<span className="text-xs uppercase dark:text-gray-400">Join, it's free</span>
-
-									<p className="my-6 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquam possimus quas, error esse quos.</p>
+									<p className="my-6 dark:text-gray-400">Marriage is a legal and emotional union between two individuals, symbolizing commitment, partnership, and shared life experiences. It involves legal procedures and often a ceremony to celebrate the couple&apos;s commitment before family and friends.</p>
 									<button type="button" className="self-start">Action</button>
 								</div>
 							</div>
 						</div>
 					</section>
-					</Parallax>
+				</Parallax>
 			</div>
-	
+
 		</div >
 	);
 };

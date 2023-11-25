@@ -1,29 +1,9 @@
-// import { useState } from "react";
+
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import "./SuccessCounter.css"
 import CountUp from 'react-countup';
 const SuccessCounter = () => {
-    // const [totalBiodata, setTotalBiodata] = useState(500);
-    // const [girlsBiodata, setGirlsBiodata] = useState(250);
-    // const [boysBiodata, setBoysBiodata] = useState(250);
-    // const [completedMarriages, setCompletedMarriages] = useState(150);
-
-    // const incrementTotalBiodata = () => {
-    //   setTotalBiodata((prevCount) => prevCount + 1);
-    // };
-
-    // const incrementGirlsBiodata = () => {
-    //   setGirlsBiodata((prevCount) => prevCount + 1);
-    // };
-
-    // const incrementBoysBiodata = () => {
-    //   setBoysBiodata((prevCount) => prevCount + 1);
-    // };
-
-    // const incrementCompletedMarriages = () => {
-    //   setCompletedMarriages((prevCount) => prevCount + 1);
-    // };
-
+   
     return (
         <div className="">
             <SectionTitle subHeading={"Check it out"} heading={"Success Counter"} />
@@ -35,33 +15,39 @@ const SuccessCounter = () => {
 
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
                                
-                                <CountUp start={0} end={280} delay={3}>
+                                <div className="rounded-full border ">
+                                <CountUp start={0} end={1300} delay={3}>
                                     {({ countUpRef }) => (
                                         <div>
                                             <span ref={countUpRef} />
                                         </div>
                                     )}
                                 </CountUp>
-                                <p className="text-2xl lg:text-4xl">TED talks</p>
+                                </div>
+                                <p className="text-2xl lg:text-2xl">Girls Biodata</p>
                             </div>
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
-                            <CountUp start={0} end={250} delay={3}>
+                            <div className="rounded-full border ">
+                                <CountUp start={0} end={1500} delay={3}>
                                     {({ countUpRef }) => (
                                         <div>
                                             <span ref={countUpRef} />
                                         </div>
                                     )}
                                 </CountUp>
-                                <p className="text-2xl lg:text-2xl">Years of experience</p>
+                                </div>
+                                <p className="text-2xl lg:text-2xl">Boys Biodata</p>
                             </div>
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
-                            <CountUp start={0} end={400} delay={5}>
+                            <div className="rounded-full border ">
+                                <CountUp start={0} end={2000} delay={3}>
                                     {({ countUpRef }) => (
                                         <div>
                                             <span ref={countUpRef} />
                                         </div>
                                     )}
                                 </CountUp>
+                                </div>
                                 <p className="text-2xl lg:text-4xl">Marriages</p>
                             </div>
                         </div>

@@ -58,7 +58,7 @@ export default function Navbar(props) {
                         title="Shrimp and Chorizo Paella"
                     />
                     <div>
-                        <h3>BrideAndGrooms</h3>
+                        <h3 style={{ color: 'green', fontWeight: 'bold' }} >BrideAndGrooms</h3>
 
                     </div>
                 </CardMedia>
@@ -66,19 +66,18 @@ export default function Navbar(props) {
             </Typography>
             <Divider />
             <List>
-
-                <NavLink to="/" sx={{ color: '#fff' }}> <MenuItem> Home</MenuItem></NavLink>
-                <NavLink to="/biodatas" sx={{ color: '#fff' }}> <MenuItem>Biodatas</MenuItem></NavLink>
+                <NavLink to="/" style={{ color: 'green', fontWeight: 'bold' }} > <MenuItem> Home</MenuItem></NavLink>
+                <NavLink to="/biodatas" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Biodatas</MenuItem></NavLink>
                 {
 
-                    user && isAdmin && <NavLink to="/dashboard/adminDashboard"> <MenuItem>Dashboard</MenuItem></NavLink>
+                    user && isAdmin && <NavLink to="/dashboard/adminDashboard" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Dashboard</MenuItem></NavLink>
                 }
                 {
 
-                    user && !isAdmin && <NavLink to="/dashboard/editBiodata"><MenuItem>Dashboard</MenuItem></NavLink>
+                    user && !isAdmin && <NavLink to="/dashboard/editBiodata" style={{ color: 'green', fontWeight: 'bold' }}><MenuItem>Dashboard</MenuItem></NavLink>
                 }
-                <NavLink to="/aboutUs" sx={{ color: '#fff' }}> <MenuItem>About Us</MenuItem></NavLink>
-                <NavLink to="/contact" sx={{ color: '#fff' }}> <MenuItem>Contact</MenuItem></NavLink>
+                <NavLink to="/aboutUs" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>About Us</MenuItem></NavLink>
+                <NavLink to="/contact" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Contact</MenuItem></NavLink>
 
             </List>
         </Box>
@@ -126,7 +125,7 @@ export default function Navbar(props) {
                                     title="Shrimp and Chorizo Paella"
                                 />
                                 <div>
-                                    <h3>BrideAndGrooms</h3>
+                                    <h3 style={{ color: 'green', fontWeight: 'bold' }} >BrideAndGrooms</h3>
 
                                 </div>
                             </CardMedia>
@@ -134,18 +133,18 @@ export default function Navbar(props) {
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }} >
 
                             <ListItem>
-                                <NavLink to="/" sx={{ color: '#0000FF' }} > <MenuItem> Home</MenuItem></NavLink>
-                                <NavLink to="/biodatas" sx={{ color: '#0000FF' }}> <MenuItem>Biodatas</MenuItem></NavLink>
+                                <NavLink to="/" style={{ color: 'green', fontWeight: 'bold' }} > <MenuItem> Home</MenuItem></NavLink>
+                                <NavLink to="/biodatas" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Biodatas</MenuItem></NavLink>
                                 {
 
-                                    user && isAdmin && <NavLink to="/dashboard/adminDashboard"> <MenuItem>Dashboard</MenuItem></NavLink>
+                                    user && isAdmin && <NavLink to="/dashboard/adminDashboard" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Dashboard</MenuItem></NavLink>
                                 }
                                 {
 
-                                    user && !isAdmin && <NavLink to="/dashboard/editBiodata"><MenuItem>Dashboard</MenuItem></NavLink>
+                                    user && !isAdmin && <NavLink to="/dashboard/editBiodata" style={{ color: 'green', fontWeight: 'bold' }}><MenuItem>Dashboard</MenuItem></NavLink>
                                 }
-                                <NavLink to="/aboutUs" sx={{ color: '#0000FF' }}> <MenuItem>About Us</MenuItem></NavLink>
-                                <NavLink to="/contact" sx={{ color: '#0000FF' }}> <MenuItem>Contact</MenuItem></NavLink>
+                                <NavLink to="/aboutUs" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>About Us</MenuItem></NavLink>
+                                <NavLink to="/contact" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Contact</MenuItem></NavLink>
                                 <Stack direction="row" spacing={2} onClick={handleClose}>
                                     <div
                                         onClick={handleToggleOpen}
@@ -170,12 +169,13 @@ export default function Navbar(props) {
                                                 </Link>
                                                 {user ? (
                                                     <>
-                                                        <div
+                                                       <Link to="/login">
+                                                       <div
                                                             onClick={handleLogOut}
                                                             className="px-4 py-3 text-black hover:bg-neutral-100 transition font-semibold cursor-pointer"
                                                         >
                                                             LogOut
-                                                        </div>
+                                                        </div></Link>
                                                     </>
                                                 ) : (
                                                     <>
