@@ -23,7 +23,7 @@ export default function Navbar(props) {
     // eslint-disable-next-line no-unused-vars
     const { window } = props;
     const { user, logOut } = useAuth()
-    const isAdmin = false
+    const isAdmin = true
     const [isOpen, setIsOpen] = React.useState(false)
     const [mobileOpen, setMobileOpen] = React.useState(false);
 

@@ -9,7 +9,7 @@ import { MdFavorite } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import "./dashboard.css"
 const Dashboard = () => {
-    const isAdmin = false
+    const isAdmin = true
     const { logOut} =useAuth()
     return (
         <div className="flex " >

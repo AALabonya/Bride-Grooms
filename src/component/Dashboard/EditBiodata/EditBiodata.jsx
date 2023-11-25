@@ -72,45 +72,6 @@ const EditBiodata = () => {
         
     };
 
-    // const onSubmit = async(data) => {
-    //     console.log(data)
-    // //image upload to imgbb and then get an url
-
-    // const imageFile ={image: data.image[0]}
-    // const res= await axiosPublic.post(image_hosting_api,imageFile,{
-    //     headers:{
-    //         "content-type":"multipart/form-data"
-    //     }
-    // })
-    // if(res.data.success){
-    //     //now send the menu item data to the server with the image url 
-    //     const menuItem ={
-    //         name:data.name,
-    //         image:res.data.data.display_url,
-    //         recipe:data.recipe,
-    //         price:parseFloat(data.price),
-    //         category:data.category
-
-    //     }
-    //   const menuRes =await axiosSecure.post("/menu",menuItem)
-    //     .then(menuRes=>{
-    //         console.log(menuRes.data);
-    //         if(menuRes.data.insertedId){
-    //             reset()
-    //             Swal.fire({
-    //                 position: "top-end",
-    //                 icon: "success",
-    //                 title: `${data.name}`,
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //               });
-    //         }
-    //     })
-
-    // }
-    // console.log("log with image url", res.data);
-    // };
-
     return (
         <div>
             <SectionTitle subHeading={"Form"} heading={"Edit Biodata"}></SectionTitle>
@@ -137,8 +98,8 @@ const EditBiodata = () => {
                                 {...register('biodataType', { required: true })}
                                 className="mt-1 p-2 w-full border rounded"
                             >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
 
@@ -162,13 +123,13 @@ const EditBiodata = () => {
                             {...register('height', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                            <option value="short">Short</option>
-                            <option value="average">Average</option>
-                            <option value="tall">Tall</option>
-                            <option value="short">Extra short</option>
-                            <option value="average">Medium</option>
-                            <option value="tall">Extra Tall</option>
-                            <option value="average">Medium</option>
+                            <option value="Short">Short</option>
+                            <option value="Average">Average</option>
+                            <option value="Tall">Tall</option>
+                            <option value="Thort">Extra short</option>
+                            <option value="Average">Medium</option>
+                            <option value="Tall">Extra Tall</option>
+                            <option value="Average">Medium</option>
                         </select>
                     </div>
 
@@ -180,17 +141,17 @@ const EditBiodata = () => {
                             {...register('weight', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                             <option value="light">Light</option>
-                            <option value="average">Average</option>
-                            <option value="heavy">Heavy</option>
-                            <option value="slim">Slim</option>
-                            <option value="chubby">Chubby</option>
-                            <option value="thin">Thin</option>
-                            <option value="overweight">Overweight</option>
-                            <option value="obese">Obese</option>
-                            <option value="fit">Fit</option>
-                            <option value="athletic">Athletic</option>
-                            <option value="stocky">Stocky</option>
+                             <option value="Light">Light</option>
+                            <option value="Average">Average</option>
+                            <option value="Heavy">Heavy</option>
+                            <option value="Slim">Slim</option>
+                            <option value="Chubby">Chubby</option>
+                            <option value="Thin">Thin</option>
+                            <option value="Overweight">Overweight</option>
+                            <option value="Obese">Obese</option>
+                            <option value="Fit">Fit</option>
+                            <option value="Athletic">Athletic</option>
+                            <option value="Stocky">Stocky</option>
                         </select>
                     </div>
 
@@ -213,23 +174,23 @@ const EditBiodata = () => {
                             {...register('occupation', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                            <option value="web developer">Web Developer</option>
-                            <option value="doctor">Doctor</option>
-                            <option value="engineer">Engineer</option>
-                            <option value="teacher">Teacher</option>
-                            <option value="house wife">House Wife</option>
-                            <option value="entrepreneur">Entrepreneur</option>
-                            <option value="artist">Artist</option>
-                            <option value="student">Student</option>
-                            <option value="lawyer">Lawyer</option>
-                            <option value="journalist">Journalist</option>
-                            <option value="content creator">Content Creator</option>
-                            <option value="judge">Judge</option>
+                            <option value="Web Developer">Web Developer</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Engineer">Engineer</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="House Wife">House Wife</option>
+                            <option value="Entrepreneur">Entrepreneur</option>
+                            <option value="Artist">Artist</option>
+                            <option value="Student">Student</option>
+                            <option value="Lawyer">Lawyer</option>
+                            <option value="Journalist">Journalist</option>
+                            <option value="Content Creator">Content Creator</option>
+                            <option value="Judge">Judge</option>
                             <option value="Chef">Chef</option>
-                            <option value="heavy">Journalist</option>
-                            <option value="corporate job">Corporate Job</option>
-                            <option value="govt. service">Govt. Service</option>
-                            <option value="ngo">NGO</option>
+                            <option value="Heavy">Journalist</option>
+                            <option value="Corporate Job">Corporate Job</option>
+                            <option value="Govt. Service">Govt. Service</option>
+                            <option value="NGO">NGO</option>
                         </select>
                     </div>
 
@@ -241,12 +202,12 @@ const EditBiodata = () => {
                             {...register('race', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                            <option value="asian">Asian</option>
-                            <option value="black">Black</option>
-                            <option value="white">White </option>
-                            <option value="light brown">Light Brown</option>
-                            <option value="medium brown">Medium Brown</option>
-                            <option value="dark brown">Dark Brown</option>
+                            <option value="Asian">Asian</option>
+                            <option value="Black">Black</option>
+                            <option value="White">White </option>
+                            <option value="Light brown">Light Brown</option>
+                            <option value="Medium brown">Medium Brown</option>
+                            <option value="Dark brown">Dark Brown</option>
 
                             {/* Add more race options as needed */}
                         </select>
@@ -329,13 +290,13 @@ const EditBiodata = () => {
                             {...register('expectedPartnerHeight', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                            <option value="short">Short</option>
-                            <option value="average">Average</option>
-                            <option value="tall">Tall</option>
-                            <option value="short">Extra short</option>
-                            <option value="average">Medium</option>
-                            <option value="tall">Extra Tall</option>
-                            <option value="average">Medium</option>
+                             <option value="Short">Short</option>
+                            <option value="Average">Average</option>
+                            <option value="Tall">Tall</option>
+                            <option value="Thort">Extra short</option>
+                            <option value="Average">Medium</option>
+                            <option value="Tall">Extra Tall</option>
+                            <option value="Average">Medium</option>
                         </select>
                     </div>
 
@@ -347,17 +308,17 @@ const EditBiodata = () => {
                             {...register('expectedPartnerWeight', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                            <option value="light">Light</option>
-                            <option value="average">Average</option>
-                            <option value="heavy">Heavy</option>
-                            <option value="slim">Slim</option>
-                            <option value="chubby">Chubby</option>
-                            <option value="thin">Thin</option>
-                            <option value="overweight">Overweight</option>
-                            <option value="obese">Obese</option>
-                            <option value="fit">Fit</option>
-                            <option value="athletic">Athletic</option>
-                            <option value="stocky">Stocky</option>
+                            <option value="Light">Light</option>
+                            <option value="Average">Average</option>
+                            <option value="Heavy">Heavy</option>
+                            <option value="Slim">Slim</option>
+                            <option value="Chubby">Chubby</option>
+                            <option value="Thin">Thin</option>
+                            <option value="Overweight">Overweight</option>
+                            <option value="Obese">Obese</option>
+                            <option value="Fit">Fit</option>
+                            <option value="Athletic">Athletic</option>
+                            <option value="Stocky">Stocky</option>
                         </select>
                     </div>
 
