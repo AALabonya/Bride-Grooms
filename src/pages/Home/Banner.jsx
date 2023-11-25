@@ -4,7 +4,7 @@ const Banner = () => {
     return (
         <div className="w-full text-center ">
         <Carousel>
-              <div className="h-[600px]">
+              <div>
                   <img src="https://i.ibb.co/kJHCVgV/banner5.jpg " />
                  
               </div>

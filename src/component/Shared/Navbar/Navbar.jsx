@@ -12,9 +12,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Avatar, CardMedia, Container, MenuItem, Stack } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
+import "./navbar.css"
 const drawerWidth = 240
 
 // eslint-disable-next-line no-unused-vars
@@ -22,6 +23,7 @@ export default function Navbar(props) {
     // eslint-disable-next-line no-unused-vars
     const { window } = props;
     const { user, logOut } = useAuth()
+    const isAdmin = false
     const [isOpen, setIsOpen] = React.useState(false)
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -30,18 +32,18 @@ export default function Navbar(props) {
     };
     const handleToggleOpen = () => {
         setIsOpen((prevState) => !prevState); // Toggle isOpen state
-      };
-      const handleLogOut = () => {
+    };
+    const handleLogOut = () => {
         logOut();
         history.push('/login');
-      };
-      const handleClose = () => {
+    };
+    const handleClose = () => {
         setIsOpen(false); // Close the dropdown when clicking outside or selecting an item
-      };
-      const handleAvatarClick = (event) => {
+    };
+    const handleAvatarClick = (event) => {
         event.stopPropagation(); // Prevent the event from reaching the Stack onClick
         setIsOpen(true); // Open the dropdown when clicking the avatar
-      };
+    };
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2, display: 'flex' }} >
@@ -65,11 +67,18 @@ export default function Navbar(props) {
             <Divider />
             <List>
 
-                <Link to="/" sx={{ color: '#fff' }}> <MenuItem> Home</MenuItem></Link>
-                <Link to="/biodatas" sx={{ color: '#fff' }}> <MenuItem>Biodatas</MenuItem></Link>
+                <NavLink to="/" sx={{ color: '#fff' }}> <MenuItem> Home</MenuItem></NavLink>
+                <NavLink to="/biodatas" sx={{ color: '#fff' }}> <MenuItem>Biodatas</MenuItem></NavLink>
+                {
 
-                <Link to="/aboutUs" sx={{ color: '#fff' }}> <MenuItem>About Us</MenuItem></Link>
-                <Link to="/contact" sx={{ color: '#fff' }}> <MenuItem>Contact</MenuItem></Link>
+                    user && isAdmin && <NavLink to="/dashboard/adminDashboard"> <MenuItem>Dashboard</MenuItem></NavLink>
+                }
+                {
+
+                    user && !isAdmin && <NavLink to="/dashboard/editBiodata"><MenuItem>Dashboard</MenuItem></NavLink>
+                }
+                <NavLink to="/aboutUs" sx={{ color: '#fff' }}> <MenuItem>About Us</MenuItem></NavLink>
+                <NavLink to="/contact" sx={{ color: '#fff' }}> <MenuItem>Contact</MenuItem></NavLink>
 
             </List>
         </Box>
@@ -77,7 +86,7 @@ export default function Navbar(props) {
     return (
         <Box sx={{ display: 'flex', height: '71px' }}>
             <CssBaseline />
-            <AppBar component="nav" sx={{ height: '70px', backgroundColor: '#FFFFFF', color: '#FFEA00'}}>
+            <AppBar component="nav" sx={{ height: '70px', backgroundColor: '#FFFFFF', color: '#FFEA00' }}>
                 <Container maxWidth="lg">
                     <Toolbar>
                         <IconButton
@@ -125,10 +134,18 @@ export default function Navbar(props) {
                         <Box sx={{ display: { xs: 'none', sm: 'block' } }} >
 
                             <ListItem>
-                                <Link to="/" sx={{ color: '#0000FF' }} > <MenuItem> Home</MenuItem></Link>
-                                <Link to="/biodatas" sx={{ color: '#0000FF' }}> <MenuItem>Biodatas</MenuItem></Link>
-                                <Link to="/aboutUs" sx={{ color: '#0000FF' }}> <MenuItem>About Us</MenuItem></Link>
-                                <Link to="/contact" sx={{ color: '#0000FF' }}> <MenuItem>Contact</MenuItem></Link>
+                                <NavLink to="/" sx={{ color: '#0000FF' }} > <MenuItem> Home</MenuItem></NavLink>
+                                <NavLink to="/biodatas" sx={{ color: '#0000FF' }}> <MenuItem>Biodatas</MenuItem></NavLink>
+                                {
+
+                                    user && isAdmin && <NavLink to="/dashboard/adminDashboard"> <MenuItem>Dashboard</MenuItem></NavLink>
+                                }
+                                {
+
+                                    user && !isAdmin && <NavLink to="/dashboard/editBiodata"><MenuItem>Dashboard</MenuItem></NavLink>
+                                }
+                                <NavLink to="/aboutUs" sx={{ color: '#0000FF' }}> <MenuItem>About Us</MenuItem></NavLink>
+                                <NavLink to="/contact" sx={{ color: '#0000FF' }}> <MenuItem>Contact</MenuItem></NavLink>
                                 <Stack direction="row" spacing={2} onClick={handleClose}>
                                     <div
                                         onClick={handleToggleOpen}

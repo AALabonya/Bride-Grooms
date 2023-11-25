@@ -6,7 +6,7 @@ import 'swiper/css/bundle'
 const SuccessStory = () => {
     return (
         <div>
-            <SectionTitle subHeading="{}" heading="Success Story"> </SectionTitle>
+            <SectionTitle subHeading="our" heading="Success Story"> </SectionTitle>
             <Swiper
                 breakpoints={{
                     570: { slidesPerView: 1, spaceBetween: 70 },
