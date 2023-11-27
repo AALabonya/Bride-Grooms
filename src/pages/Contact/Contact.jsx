@@ -6,15 +6,15 @@ const Contact = () => {
         <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
             <div className="flex flex-col max-w-8xl mx-auto overflow-hidden rounded">
                 <div className="w-full">
-                    <img src="https://i.ibb.co/2Sr7Xt0/digital-technology-polygon-connection-background-1035-17976.webp" alt="" className="relative w-full h-72 sm:h-96 dark:bg-gray-500" />
-                    <h1 className="absolute font-bold text-9xl top-64 text-center flex justify-center ml-[500px]">Contact Us</h1>
+                    <img src="https://castella.qodeinteractive.com/wp-content/uploads/2022/11/h5-parallax-01.jpg" alt="" className="relative w-full h-72 sm:h-96 dark:bg-gray-500" />
+                    <h1 className="absolute font-bold text-9xl top-64 text-center flex justify-center lg:ml-[430px]">Contact Us</h1>
                 </div>
                 <div className="top-[55%] absolute">
                     <div className="flex mx-auto justify-center ml-60">
                         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-5 ">
                             <div className="w-72 h-52 border bg-white  animate-pulse ">
-
-                                <h1 className="text-center mt-3">OUR OFFICE</h1>
+                                  <div className="flex justify-center"><img src="https://rn53themes.net/themes/matrimo/images/icon/pro-city.png" alt="" className="w-20 h-16 mt-5"/></div>
+                                <h1 className="text-center text-sm mt-1">OUR OFFICE</h1>
                                 <h1 className="text-center">Most Trusted and premium Matrimony Service in the World.</h1>
                                 <div className="flex justify-center items-center">
                                    <MdOutlineEmail />
@@ -49,7 +49,7 @@ const Contact = () => {
         </div>
 
 
-        <div className="grid mt-10 max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100">
+        <div className="grid max-w-screen-xl bg-white mt-20 grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100">
 	<div className="flex flex-col justify-between">
 		<div className="space-y-2 ml-8">
 			<h2 className="text-4xl font-bold leadi lg:text-5xl">Now! <br/>

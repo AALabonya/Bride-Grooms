@@ -5,7 +5,7 @@ const About = () => {
             <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
                 <div className="flex flex-col max-w-8xl mx-auto overflow-hidden rounded">
                     <div className="w-full">
-                        <img src="https://i.ibb.co/2Sr7Xt0/digital-technology-polygon-connection-background-1035-17976.webp" alt="" className="relative w-full h-72 sm:h-96 dark:bg-gray-500" />
+                        <img src="https://castella.qodeinteractive.com/wp-content/uploads/2022/11/h5-parallax-01.jpg" alt="" className="relative w-full h-72 sm:h-96 dark:bg-gray-500" />
                         <h1 className="absolute font-bold lg:text-9xl top-52 ml-20 text-4xl lg:top-64 text-center flex justify-center lg:ml-[500px]">About Us</h1>
                     </div>
                     <div className="top-[75%] md:top-[55%] absolute">

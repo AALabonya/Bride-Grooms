@@ -5,20 +5,31 @@ import 'swiper/css';
 import 'swiper/css/bundle'
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     Navigation
 } from 'swiper/modules';
-const SuccessStory = () => {
-    const [reviews, setReviews] = useState([])
-    const [rating, setRating] = useState(0);
 
-    useEffect(() => {
-        fetch("/premimum.json")
-            .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [])
-    console.log(reviews);
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+
+const SuccessStory = () => {
+    const [rating, setRating] = useState(0);
+      const axiosSecure = useAxiosSecure()
+  
+
+    const { data:reviews=[], isLoading} = useQuery({
+        queryKey: ['successStory'],
+        queryFn: async () => {
+            const res = await axiosSecure.get("/successStory")
+            return res.data;
+        }
+
+    })
+ console.log(reviews)
+ if(isLoading){
+    return <p>loading..............................</p>
+ }
     return (
         <div>
             <SectionTitle subHeading="our" heading="Success Story"> </SectionTitle>
@@ -42,28 +53,34 @@ const SuccessStory = () => {
                         navigation={true}
                     >
 
+{
+    reviews.map(review => <SwiperSlide key={review._id}>
 
-                        <SwiperSlide>
+           <div >
+           
+                
+                   <div className="text-center bg-white rounded-lg mb-5">
 
-                            <div className="text-center bg-white rounded-lg">
+                    <div className="flex justify-start  mb-5">
 
-                                <div className="flex justify-start  mb-5">
-
-                                    <img style={{ borderRadius: "0 200px 200px 200px" }} src="https://rn53themes.net/themes/matrimo/images/couples/6.jpg" alt="" className="w-full h-72 items-center text-center mt-3 " /></div>
-                                <div className="flex justify-center mb-5">
-                                    <Rating
-                                        style={{ maxWidth: 140 }}
-                                        value={rating}
-                                        onChange={setRating}
-                                        isRequired
-                                    />
-                                </div>
-                                <div className="flex justify-center mb-5"><p className="max-w-lg"> Marriage Date: 11/12/2022</p></div>
-                                <p className="text-2xl text-orange-400" > Enter a freshly updated and thoughtfully furnished peaceful home
-                                    surrounded by ancient trees, stone walls, and open meadows.</p>
-                            </div>
-                        </SwiperSlide>
-                        
+                        <img style={{ borderRadius: "0 200px 200px 200px" }} src={review.image} alt="" className="w-full h-72 items-center text-center mt-3 " /></div>
+                    <div className="flex justify-center mb-5">
+                        <Rating
+                            style={{ maxWidth: 140 }}
+                            value={rating}
+                            onChange={setRating}
+                            isRequired
+                        />
+                    </div>
+                    <div className="flex justify-center mb-5"><p className="max-w-lg"> Marriage Date:{review.date}</p></div>
+                    <p className="text-lg text-orange-400 mb-5 w-[400px] text-center mx-auto pb-7" > {review.successStoryReview}</p>
+                </div>
+         
+            </div>
+      
+        </SwiperSlide>)
+}
+{/*                         
                         <SwiperSlide>
 
                             <div className="text-center bg-white rounded-lg">
@@ -251,7 +268,7 @@ const SuccessStory = () => {
                                 <p className="text-2xl text-orange-400" > Enter a freshly updated and thoughtfully furnished peaceful home
                                     surrounded by ancient trees, stone walls, and open meadows.</p>
                             </div>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                     </Swiper>
                 </div>
             </div>

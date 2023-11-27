@@ -37,13 +37,14 @@ const ViewBiodata = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosSecure.post("/premiumRequest", requestedData)
+                refetch()
                 Swal.fire({
                     title: "Request Send!",
                     text: "Successfully send request.",
                     icon: "success"
-                });
+                }) 
             }
-            refetch()
+            
         });
     }
 

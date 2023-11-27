@@ -1,4 +1,6 @@
 a.active{
-    color: #fff;
+    background: rgb(228, 240, 228);
+    color: black;
+    font-weight: bold;
     border-radius: 5px;
 }

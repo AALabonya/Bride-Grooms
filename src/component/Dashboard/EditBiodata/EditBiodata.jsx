@@ -13,6 +13,7 @@ const EditBiodata = () => {
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
   const {user} = useAuth()
+  
     const onSubmit = async(data) => {
         //image upload to imgbb and then get an url
 

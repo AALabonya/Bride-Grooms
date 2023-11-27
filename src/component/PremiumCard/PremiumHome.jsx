@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
 
 const PremiumHome = () => {
     const axiosPublic =useAxiosPublic()
@@ -35,7 +36,7 @@ const PremiumHome = () => {
               <p className="text-sm dark:text-gray-400 text-center">Occupation :{premium.occupation}</p>
           </div>
           <div className="flex w-full justify-center">
-              <button className="text-white font-bold py-2 rounded-md w-full bg bg-lime-700">View Profile</button>
+             <Link to={`/detailsPage/${premium._id}`}> <button className="text-white font-bold py-2 rounded-md w-full bg bg-lime-700">View Profile</button></Link>
           </div>
       </div>)
           }

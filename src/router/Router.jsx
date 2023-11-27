@@ -16,6 +16,9 @@ import ViewBiodata from "../component/Dashboard/ViewBiodata/ViewBiodata";
 import MyContactRequest from "../component/Dashboard/MyContactRequest/MyContactRequest";
 import FavouritesBiodata from "../component/Dashboard/FavouritesBiodata/FavouritesBiodata";
 import BioDatas from "../component/BioDatas/BioDatas";
+import BiodataDetailsPage from "../pages/BiodataDetailsPage/BiodataDetailsPage";
+import CheckoutContact from "../pages/CheckoutContact/CheckoutContact";
+import GotMarried from "../component/Dashboard/GotMarried/GotMarried";
 
 const Router = createBrowserRouter([
     {
@@ -45,6 +48,14 @@ const Router = createBrowserRouter([
             {
                 path: "/signUp",
                 element: <SignUp />
+            },
+            {
+                path:"/detailsPage/:id",
+                element:<BiodataDetailsPage/>
+            },
+            {
+                path:"/checkout/:id",
+                element:<CheckoutContact/>
             }
         ]
     },
@@ -84,6 +95,10 @@ const Router = createBrowserRouter([
             {
                 path:"favouritesBiodata",
                 element:<FavouritesBiodata/>
+            },
+            {
+                path:"gotMarried",
+                element:<GotMarried/>
             }
         ]
     }
