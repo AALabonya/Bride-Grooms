@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 const FavouritesBiodata = () => {
     const axiosPublic = useAxiosPublic()
     const axiosSecure =useAxiosSecure()
@@ -43,6 +44,9 @@ const FavouritesBiodata = () => {
     }
     return (
         <div>
+              <Helmet>
+        <title>BrideAndGrooms | Favourites</title>
+      </Helmet>
              <div>
             <div>
                 <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100 bg-white">

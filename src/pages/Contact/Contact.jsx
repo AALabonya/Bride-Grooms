@@ -1,8 +1,12 @@
 import { MdOutlineEmail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
+import { Helmet } from "react-helmet-async";
 const Contact = () => {
     return (
         <div className="">
+            <Helmet>
+        <title>BrideAndGrooms | Contact</title>
+      </Helmet>
         <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
             <div className="flex flex-col max-w-8xl mx-auto overflow-hidden rounded">
                 <div className="w-full">

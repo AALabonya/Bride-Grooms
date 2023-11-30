@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useManageUser from "../../../hooks/useManageUser";
 import UpdateBiodata from "./UpdateBiodata";
+import { Helmet } from "react-helmet-async";
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
@@ -82,6 +83,9 @@ const EditBiodata = () => {
 
     return (
         <div>
+            <Helmet>
+        <title>BrideAndGrooms | Edit Biodata</title>
+      </Helmet>
             <SectionTitle subHeading={"BioData Form"}></SectionTitle>
             <div className="p-16 bg-gray-100 max-w-[900px] mx-auto">
             

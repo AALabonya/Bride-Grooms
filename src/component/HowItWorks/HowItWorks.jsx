@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Parallax } from "react-parallax";
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
-import { Helmet } from "react-helmet-async";
 const HowItWorks = () => {
 
 	return (
 		<div>
-			<Helmet>
-				<title>BrideAndGrooms | How it works</title>
-			</Helmet>
+			
 			<SectionTitle subHeading="MOMENTS" heading="How it works"></SectionTitle>
 
 			<div>
@@ -44,10 +41,6 @@ const HowItWorks = () => {
 
 
 									<p className="my-6 dark:text-gray-400">To express interest, typically on social platforms or dating sites, click or tap on the designated button or icon associated with the user&apos;s profile. This action notifies the user of your interest in connecting or engaging further.
-
-
-
-
 
 									</p>
 
