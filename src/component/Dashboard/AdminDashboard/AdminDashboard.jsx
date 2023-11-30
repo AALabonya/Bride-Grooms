@@ -31,7 +31,7 @@ const AdminDashboard = () => {
 		{ name: 'Female', value: parseInt(statistic?.userFemale) },
 		{ name: 'Quantity', value: parseInt(statistic?.userInfo) },
 		{ name: 'Premium Member', value: parseInt(statistic?.userMale) },
-		{ name: 'TotalRevenue', value: parseInt(statistic?.revenue / 1000) },
+		{ name: 'TotalRevenue', value: parseInt(statistic?.revenue) },
 	];
 	const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red'];
 

@@ -91,6 +91,7 @@ const CheckOutForm = () => {
                 console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id)
             }
+            
             //now save the payment in the database 
             const requestData = {
                 requesterId: userId,
