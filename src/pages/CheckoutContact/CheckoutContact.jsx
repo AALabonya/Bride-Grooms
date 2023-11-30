@@ -3,6 +3,7 @@ import SectionTitle from "../../component/Shared/SectionTitle/SectionTitle";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckOutForm from "../../component/Form/CheckOutForm";
+import { Helmet } from "react-helmet-async";
 
 
 //TODO: add published key(I will get a key when I create account in the stripe  )
@@ -14,6 +15,9 @@ const CheckoutContact = () => {
    
     return (
         <div>
+             <Helmet>
+        <title>BrideAndGrooms | Request Contact</title>
+      </Helmet>
             <SectionTitle subHeading={"checkout"} heading={"Request Contact Information"}></SectionTitle>
             <div>
                 <Elements stripe={stripPromise}>

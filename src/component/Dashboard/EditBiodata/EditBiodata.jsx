@@ -5,53 +5,60 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
-const image_hosting_key= import.meta.env.VITE_IMGBB_API_KEY;
-const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+import useManageUser from "../../../hooks/useManageUser";
+import UpdateBiodata from "./UpdateBiodata";
+const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const EditBiodata = () => {
-    const {register, handleSubmit,reset} = useForm();
-  const axiosPublic = useAxiosPublic()
-  const axiosSecure = useAxiosSecure()
-  const {user} = useAuth()
-  
-    const onSubmit = async(data) => {
+    const { register, handleSubmit, reset } = useForm();
+    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
+    const { user } = useAuth()
+    const [bioData, refetch, isLoading] = useManageUser()
+    console.log(bioData);
+
+    const userAnyBiodataOrNot =bioData?.find(data => data?.userEmail === user?.email);
+    console.log(userAnyBiodataOrNot);
+
+    const onSubmit = async (data) => {
         //image upload to imgbb and then get an url
 
-        const imageFile ={image: data.image[0]}
-        const res= await axiosPublic.post(image_hosting_api,imageFile,{
-            headers:{
-                "content-type":"multipart/form-data"
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                "content-type": "multipart/form-data"
             }
         })
-    
-             const image = res.data.data.display_url
-             if(res.data.success){
-                const bioDataInfo ={
-                    name: data.name,
-                    biodataType: data.biodataType,
-                    date: data.date,
-                    height: data.height,
-                    weight: data.weight,
-                    occupation: data.occupation,
-                    race: data.race,
-                    fathersName: data.fathersName,
-                    age: parseInt(data.age),
-                    permanentDivision: data.permanentDivision,
-                    presentDivision: data.presentDivision,
-                    expectedPartnerAge: parseInt(data.expectedPartnerAge),
-                    mothersName: data.mothersName,
-                    expectedPartnerHeight: data.expectedPartnerHeight,
-                    expectedPartnerWeight: data.expectedPartnerWeight,
-                    contactEmail: data.contactEmail,
-                    mobileNumber: data.mobileNumber,
-                    image,
-                    userEmail:user ?.email
-                }
-                console.log(bioDataInfo);
-                const bioInfo =await axiosSecure.post(`/allBioData?email=${user?.email}`, bioDataInfo)
-                .then(bioInfo=>{
+
+        const image = res.data.data.display_url
+        if (res.data.success) {
+            const bioDataInfo = {
+                name: data.name,
+                biodataType: data.biodataType,
+                date: data.date,
+                height: data.height,
+                weight: data.weight,
+                occupation: data.occupation,
+                race: data.race,
+                fathersName: data.fathersName,
+                age: parseInt(data.age),
+                permanentDivision: data.permanentDivision,
+                presentDivision: data.presentDivision,
+                expectedPartnerAge: parseInt(data.expectedPartnerAge),
+                mothersName: data.mothersName,
+                expectedPartnerHeight: data.expectedPartnerHeight,
+                expectedPartnerWeight: data.expectedPartnerWeight,
+                contactEmail: data.contactEmail,
+                mobileNumber: data.mobileNumber,
+                image,
+                userEmail: user?.email
+            }
+            console.log(bioDataInfo);
+            const bioInfo = await axiosSecure.post(`/allBioData?email=${user?.email}`, bioDataInfo)
+                .then(bioInfo => {
                     console.log(bioInfo.data);
-                    if(bioInfo.data.insertedId){
+                    if (bioInfo.data.insertedId) {
                         reset()
                         Swal.fire({
                             position: "top-end",
@@ -59,26 +66,27 @@ const EditBiodata = () => {
                             title: `${data.name}`,
                             showConfirmButton: false,
                             timer: 1500
-                          });
-                    }else{
+                        });
+                    } else {
                         Swal.fire({
                             icon: "error",
                             title: `${bioInfo.data.message}`,
-                            text:"sorry",
+                            text: "sorry",
                         })
                     }
                 })
-             }
-         
-        
+        }
+
+
     };
 
     return (
         <div>
-            <SectionTitle subHeading={"Form"} heading={"Edit Biodata"}></SectionTitle>
+            <SectionTitle subHeading={"BioData Form"}></SectionTitle>
             <div className="p-16 bg-gray-100 max-w-[900px] mx-auto">
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-
+            
+                {!userAnyBiodataOrNot? <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <h1 className='text-center text-2xl mb-10 font-semibold'>Create BioData Form</h1>
                     <div className="mb-6">
                         <label className="block text-sm font-medium text-gray-700">
                             Name
@@ -142,7 +150,7 @@ const EditBiodata = () => {
                             {...register('weight', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                             <option value="Light">Light</option>
+                            <option value="Light">Light</option>
                             <option value="Average">Average</option>
                             <option value="Heavy">Heavy</option>
                             <option value="Slim">Slim</option>
@@ -291,7 +299,7 @@ const EditBiodata = () => {
                             {...register('expectedPartnerHeight', { required: true })}
                             className="mt-1 p-2 w-full border rounded"
                         >
-                             <option value="Short">Short</option>
+                            <option value="Short">Short</option>
                             <option value="Average">Average</option>
                             <option value="Tall">Tall</option>
                             <option value="Thort">Extra short</option>
@@ -349,7 +357,7 @@ const EditBiodata = () => {
                         <label className="block text-sm font-medium text-gray-700">
                             Profile Image Link or Image Input
                         </label>
-                        <input {...register("image", { required: true})} type="file" className="file-input file-input-bordered my-5 fill-gray-100 w-full max-w-xs" />
+                        <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered my-5 fill-gray-100 w-full max-w-xs" />
                     </div>
 
                     <div>
@@ -360,7 +368,15 @@ const EditBiodata = () => {
                             Submit
                         </button>
                     </div>
-                </form>
+                </form> : <UpdateBiodata
+                    userAnyBiodataOrNot={userAnyBiodataOrNot}
+                    onSubmit={handleSubmit(onSubmit)}
+                    user={user}
+                    URL={image_hosting_api}
+                    axiosPublic={axiosPublic}
+                    axiosSecure={axiosSecure}
+
+                />}
             </div>
         </div>
     );

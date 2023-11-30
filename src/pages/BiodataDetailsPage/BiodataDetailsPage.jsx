@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Loading from "../Loading";
+import { Helmet } from "react-helmet-async";
 
 const BiodataDetailsPage = () => {
     const axiosPublic = useAxiosPublic()
@@ -12,10 +14,10 @@ const BiodataDetailsPage = () => {
     const{user}=useAuth()
      console.log(user?.email);
     console.log(id);
-    const { data: allBioData = [] } = useQuery({
-        queryKey: ['premiumRequest'],
+    const { data: allBioData = [] ,isLoading} = useQuery({
+        queryKey: ['bioDataAll'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/allBioData')
+            const res = await axiosPublic.get('/bioDataAll')
             return res.data;
         }
 
@@ -44,10 +46,22 @@ const BiodataDetailsPage = () => {
                     text: "Your favorite bio data Added!",
                     icon: "success"
                   });
+             }else{
+                Swal.fire({
+                    title: "Sorry!",
+                    text: "Already Added!",
+                    icon: "error"
+                  });
              }
+    }
+    if(isLoading){
+        return<Loading></Loading>
     }
     return (
         <div>
+             <Helmet>
+        <title>BrideAndGrooms | Biodata Details</title>
+      </Helmet>
             <section className="dark:bg-gray-800 dark:text-gray-100 mt-10">
                 <div className="flex gap-12 justify-center mx-auto">
                     <div className="rounded-lg bg-white">
@@ -174,13 +188,14 @@ const BiodataDetailsPage = () => {
                                             className="w-[300px] rounded-bl-3xl rounded-tr-2xl object-cover sm:h-64 lg:h-72"
                                         />
 
-                                        <div className="mt-4 sm:flex sm:items-center sm:justify-center sm:gap-4">
-                                            <strong className="font-medium">Name: {gender.name}</strong>
-
-                                            <span className="hidden sm:block sm:h-px sm:w-8 sm:bg-yellow-500"></span>
-
-                                            <p className="mt-0.5 opacity-50 sm:mt-0">Occupation:{gender.occupation}</p>
+                                        <div className="mt-4 text-center">
+                                            <h1 className="text-base font-semibold">{gender.name}</h1>
+                                            <div className="flex justify-evenly">
+                                            <p>BiodataId: {gender.biodataType}</p>
+                                              <p>BiodataId:{gender.biodataId}</p>
+                                            </div>
                                         </div>
+
                                     </a>)
                                 }
 

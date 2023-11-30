@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+
 import { MdWorkspacePremium } from "react-icons/md";
 const ManageUserTable = ({ userData }) => {
     return (

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyContactRequest = () => {
     const { user } = useAuth()
@@ -28,7 +29,7 @@ const MyContactRequest = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/payment//${contact._id}`)
+                axiosSecure.delete(`/payment/${contact._id}`)
                     .then(res => {
                         console.log(res.data);
                         if (res.data.deletedCount > 0) {
@@ -45,9 +46,10 @@ const MyContactRequest = () => {
         })
     }
     return (
-        <div>
-            <div>
                 <div>
+                    <Helmet>
+        <title>BrideAndGrooms | Contact Request</title>
+      </Helmet>
                     <div>
                         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100 bg-white">
                             <h2 className="text-2xl font-semibold leadi text-center mb-4 mt-10">Contact Request Information</h2>
@@ -117,8 +119,7 @@ const MyContactRequest = () => {
 
 
                 </div>
-            </div>
-        </div>
+         
     );
 };
 

@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from 'firebase/auth'
 import app from "../firebase/firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 // import { clearCookie } from "../api/authshare";
 
@@ -13,7 +14,7 @@ const googleProvider = new GoogleAuthProvider()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-
+        const axiosPublic =useAxiosPublic()
     //createUser 
     const createUser = (email, password) => {
         setLoading(true)
@@ -50,17 +51,35 @@ const AuthProvider = ({ children }) => {
         })
     }
 
-    //onAuthStateChange 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             console.log("current User", currentUser);
-            setLoading(false)
+            if(currentUser){
+                //get token and store client
+                const userInfo ={ email: currentUser.email}
+                axiosPublic.post("/jwt", userInfo)
+                .then(res=>{
+                    console.log(res.data.token);
+                    if(res.data.token){
+                        localStorage.setItem("access-token", res.data.token)
+                        setLoading(false)
+
+                    }
+                })
+                
+            }
+            else{
+                //TODO: remove token(if token stored in the client site local storage, caching, in memory)
+                 localStorage.removeItem("access-token")
+                 setLoading(false)
+            }
+            
         })
-        return () => {
+        return() =>{
             return unSubscribe()
         }
-    }, [])
+    }, [axiosPublic])
     const info = {
         user,
         loading,

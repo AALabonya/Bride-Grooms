@@ -2,7 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 const Banner = () => {
     return (
-        <div className="w-full text-center ">
+        <div className="w-full text-center">
         <Carousel>
               <div>
                   <img src="https://i.ibb.co/kJHCVgV/banner5.jpg " className="relative"/>

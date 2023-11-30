@@ -2,11 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Loading from "../../../pages/Loading";
 
 const ApprovedPremium = () => {
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-    const { data: premiumRequest = [], refetch } = useQuery({
+    const { data: premiumRequests = [], refetch, isLoading } = useQuery({
         queryKey: ['premiumRequest'],
         queryFn: async () => {
             const res = await axiosPublic.get("/premiumRequest")
@@ -14,21 +15,24 @@ const ApprovedPremium = () => {
         }
 
     })
-
+console.log();
      const handleRequest = async(id)=>{
         const res = await axiosSecure.patch(`/approvePremium?id=${id}`)
         console.log(res.data);
-        if(res.data.modifiedCount > 0){
+        if(res.data.acknowledged){
                 Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "Your approve this premium membership",
-                showConfirmButton: false,
-                timer: 1500
-              })&& refetch()
+               
+              }) 
+              refetch();
         }
      }
 
+     if(isLoading){
+        return <Loading></Loading>
+     }
     return (
         <div>
             <div>
@@ -56,10 +60,10 @@ const ApprovedPremium = () => {
                             </thead>
                             <tbody>
                                 {
-                                    premiumRequest.map(request =>
+                                    premiumRequests.map(request =>
                                         <tr key={request._id} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900">
                                             <td className="p-3">
-                                                <p>{request.bioDataId}</p>
+                                                <p>{request.biodataId}</p>
                                             </td>
                                             <td className="p-3">
                                                 <p>{request.name}</p>
@@ -69,7 +73,7 @@ const ApprovedPremium = () => {
 
                                             </td>
 
-                                            {request?.premiumRequestStatus === "approved" ? <td className="p-1">
+                                            {request?.premiumRequestStatus ==="approved" ? <td className="p-1">
                                                     <p className="p-1 bg-green-500 rounded-md text-center text-white text-lg">Premium </p>
 
                                             </td>:
@@ -78,12 +82,12 @@ const ApprovedPremium = () => {
 
                                     </td>}
                                            {
-                                            request?.premiumRequestStatus==="approved"? <td className="p-1">
+                                            request?.premiumRequestStatus ==="approved" ? <td className="p-1">
                                             <button  disabled className="p-1 bg-gray-200 rounded-md text-center text-white text-lg">Approved</button>
 
                                     </td>:
                                      <td >
-                                     <button onClick={()=>handleRequest(request.bioDataId)} className="p-1 bg-pink-500 rounded-md text-center text-white text-lg">Approve</button>
+                                     <button onClick={()=>handleRequest(request.biodataId)} className="p-1 bg-pink-500 rounded-md text-center text-white text-lg">Approve</button>
 
                              </td>
                                            }

@@ -19,11 +19,16 @@ import BioDatas from "../component/BioDatas/BioDatas";
 import BiodataDetailsPage from "../pages/BiodataDetailsPage/BiodataDetailsPage";
 import CheckoutContact from "../pages/CheckoutContact/CheckoutContact";
 import GotMarried from "../component/Dashboard/GotMarried/GotMarried";
+import RouteStory from "../component/Dashboard/SuccessRouteStory/RouteStory";
+import ErrorPage from "../pages/ErrorPage";
+import AdminRoute from "./AdminRoute";
+
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement:<ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -51,50 +56,55 @@ const Router = createBrowserRouter([
             },
             {
                 path:"/detailsPage/:id",
-                element:<BiodataDetailsPage/>
+                element:<PrivateRoute><BiodataDetailsPage/></PrivateRoute> 
             },
             {
                 path:"/checkout/:id",
-                element:<CheckoutContact/>
+                element:<PrivateRoute><CheckoutContact/></PrivateRoute>
             }
         ]
     },
     {
         path: "dashboard",
-        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        element: <PrivateRoute><Dashboard/></PrivateRoute>,
         children: [
+            //admin route 
             {
                 path: "adminDashboard",
-                element: <AdminDashboard />
+                element:<PrivateRoute><AdminRoute><AdminDashboard/></AdminRoute></PrivateRoute>
             },
             {
                 path: "manageUsers",
-                element: <ManageUsers />
+                element:<PrivateRoute><AdminRoute><ManageUsers/></AdminRoute></PrivateRoute>
             },
             {
                 path: "approvedPremium",
-                element: <ApprovedPremium />
+                element:<PrivateRoute><AdminRoute><ApprovedPremium /></AdminRoute></PrivateRoute> 
             },
             {
                 path: "approvedContactRequest",
-                element: <ApprovedContactRequest />
+                element:<PrivateRoute><AdminRoute><ApprovedContactRequest/></AdminRoute></PrivateRoute>
+            },
+            {
+                path:"successRouteStory",
+                element:<PrivateRoute><AdminRoute><RouteStory/></AdminRoute></PrivateRoute>
             },
             //user normal 
             {
                 path: "editBiodata",
-                element:<EditBiodata/>
+                element:<PrivateRoute><EditBiodata/></PrivateRoute>
             },
             {
                 path:"viewBiodata",
-                element:<ViewBiodata/>
+                element:<PrivateRoute><ViewBiodata/></PrivateRoute>
             },
             {
                 path:"myContactRequest",
-                element:<MyContactRequest/>
+                element:<PrivateRoute><MyContactRequest/></PrivateRoute>
             },
             {
                 path:"favouritesBiodata",
-                element:<FavouritesBiodata/>
+                element:<PrivateRoute><FavouritesBiodata/></PrivateRoute>
             },
             {
                 path:"gotMarried",

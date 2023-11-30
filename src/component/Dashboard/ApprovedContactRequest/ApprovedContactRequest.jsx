@@ -2,11 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import Loading from "../../../pages/Loading";
+import { Helmet } from "react-helmet-async";
 
 const ApprovedContactRequest = () => {
     const axiosPublic =useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-    const { data:showRequest = [], refetch} = useQuery({
+    const { data:showRequest = [], refetch , isLoading} = useQuery({
         queryKey: ['showRequest'],
         queryFn: async () => {
             const res = await axiosPublic.get("/payment")
@@ -19,18 +21,26 @@ const ApprovedContactRequest = () => {
         const res = await axiosSecure.patch(`/payment/${id}`)
         console.log(res.data);
         if(res.data.modifiedCount > 0){
+            refetch()
                 Swal.fire({
                 position: "top-end",
                 icon: "success",
                 title: "Request accepted",
                 showConfirmButton: false,
                 timer: 1500
-              })&& refetch()
+              }) 
         }
      }
+
+     if(isLoading){
+        return<Loading></Loading>
+     }
     return (
-        <div>
+     
             <div>
+                <Helmet>
+        <title>BrideAndGrooms | Approved Contact </title>
+      </Helmet>
             <div>
                 <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100 bg-white">
                     <h2 className="text-2xl font-semibold leadi text-center mb-4 mt-10">Approved Contact Request</h2>
@@ -99,7 +109,7 @@ const ApprovedContactRequest = () => {
             
 
         </div> 
-        </div>
+        
     );
 };
 

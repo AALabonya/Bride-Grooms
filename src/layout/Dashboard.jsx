@@ -9,8 +9,9 @@ import { MdFavorite } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import { TbCirclesRelation } from "react-icons/tb";
 import "./dashboard.css"
+import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
-    const isAdmin = false
+    const [isAdmin] = useAdmin()
     const { logOut} =useAuth()
     return (
         <div className="flex " >
@@ -36,6 +37,11 @@ const Dashboard = () => {
                    <div className="flex items-center gap-2 mb-5">
                    <FcApproval className="bg-black"/>
                    Approved Contact Request</div></NavLink></li>
+                    <li><NavLink to="/dashboard/successRouteStory">
+                   <div className="flex items-center gap-2 mb-5">
+                   <FcApproval className="bg-black"/>
+                   Success Story</div></NavLink></li>
+                   
                    <li onClick={logOut}><NavLink to="/login ">
                    <div className="flex items-center gap-2 mb-5 "><CiLogout />
                    Logout</div></NavLink></li></>

@@ -3,6 +3,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key= import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -24,10 +25,10 @@ const GotMarried = () => {
     if(res.data.success){
         //now send the menu item data to the server with the image url 
         const story ={
-            selfBiodataNumber:parseInt(data.number),
+            selfBiodataNumber:parseInt(data.SelfBiodataNumber),
             image,
-            partnerBiodataNumber:parseInt(data.number),
-            date: new Date().toLocaleDateString(),
+            partnerBiodataNumber:parseInt(data.PartnerBiodataNumber),
+            date: new Date(),
             successStoryReview:data.SuccessStoryReview
  }
         console.log(story);
@@ -53,6 +54,9 @@ const GotMarried = () => {
 
       return (
         <div>
+            <Helmet>
+        <title>BrideAndGrooms | Got Married</title>
+      </Helmet>
             <SectionTitle heading="Create a Got Married" subHeading="Form"></SectionTitle>
             <div className="p-10 bg-white max-w-[990px] mx-auto">
             <form onSubmit={handleSubmit(onSubmit)} >
@@ -61,13 +65,13 @@ const GotMarried = () => {
                     <label className="label">
                         <span className="label-text">Self Biodata Number</span>
                     </label>
-                    <input {...register("number", { required: true})} type="number" placeholder="Self Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'/>
+                    <input {...register("SelfBiodataNumber", { required: true})} type="number" placeholder="Self Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'/>
                 </div>
                 <div className="form-control w-full my-6">
                     <label className="label">
                         <span className="label-text">Partner Biodata Number</span>
                     </label>
-                    <input {...register("text", { required: true})} type="number" placeholder="Partner Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'/>
+                    <input {...register("PartnerBiodataNumber", { required: true})} type="number" placeholder="Partner Biodata Number" className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900'/>
                 </div>
                 
              </div>

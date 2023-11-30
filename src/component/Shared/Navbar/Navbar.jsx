@@ -16,6 +16,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { Avatar, CardMedia, Container, MenuItem, Stack } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import "./navbar.css"
+import useAdmin from '../../../hooks/useAdmin';
+import { useState } from 'react';
 const drawerWidth = 240
 
 // eslint-disable-next-line no-unused-vars
@@ -23,26 +25,26 @@ export default function Navbar(props) {
     // eslint-disable-next-line no-unused-vars
     const { window } = props;
     const { user, logOut } = useAuth()
-    const isAdmin = true
-    const [isOpen, setIsOpen] = React.useState(false)
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const[isAdmin] = useAdmin()
+    const [isOpen, setIsOpen] =useState(false)
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
     const handleToggleOpen = () => {
-        setIsOpen((prevState) => !prevState); // Toggle isOpen state
+        setIsOpen((prevState) => !prevState); 
     };
     const handleLogOut = () => {
         logOut();
         history.push('/login');
     };
     const handleClose = () => {
-        setIsOpen(false); // Close the dropdown when clicking outside or selecting an item
+        setIsOpen(false); 
     };
     const handleAvatarClick = (event) => {
-        event.stopPropagation(); // Prevent the event from reaching the Stack onClick
-        setIsOpen(true); // Open the dropdown when clicking the avatar
+        event.stopPropagation(); 
+        setIsOpen(true); 
     };
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -78,6 +80,7 @@ export default function Navbar(props) {
                 }
                 <NavLink to="/aboutUs" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>About Us</MenuItem></NavLink>
                 <NavLink to="/contact" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Contact</MenuItem></NavLink>
+                <NavLink to="/signUp" style={{ color: 'green', fontWeight: 'bold' }}> <MenuItem>Logout</MenuItem></NavLink>
 
             </List>
         </Box>
@@ -104,15 +107,6 @@ export default function Navbar(props) {
                             height="50"
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                         >
-                            {/* Bride and Grooms <img src="https://i.ibb.co/vYjWpTZ/bride.png" alt="" /> */}
-                            {/* <CardMedia
-
-                                component="img"
-                                width="40"
-                                height="50"
-                                image="https://i.ibb.co/vYjWpTZ/bride.png"
-                                alt="Paella dish"
-                            /> */}
 
                             <CardMedia
                                 component="div"

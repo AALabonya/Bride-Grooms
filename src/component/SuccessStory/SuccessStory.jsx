@@ -12,23 +12,24 @@ import {
 
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Loading from "../../pages/Loading";
 
-const SuccessStory = () => {
+const SuccessStory = (date) => {
     const [rating, setRating] = useState(0);
       const axiosSecure = useAxiosSecure()
   
 
     const { data:reviews=[], isLoading} = useQuery({
-        queryKey: ['successStory'],
+        queryKey: ['successStory', date],
         queryFn: async () => {
-            const res = await axiosSecure.get("/successStory")
+            const res = await axiosSecure.get(`/successStory?date=${date}}`)
             return res.data;
         }
 
     })
  console.log(reviews)
  if(isLoading){
-    return <p>loading..............................</p>
+    return <Loading></Loading>
  }
     return (
         <div>
@@ -63,7 +64,7 @@ const SuccessStory = () => {
 
                     <div className="flex justify-start  mb-5">
 
-                        <img style={{ borderRadius: "0 200px 200px 200px" }} src={review.image} alt="" className="w-full h-72 items-center text-center mt-3 " /></div>
+                        <img style={{ borderRadius: "0 300px 200px 200px" }} src={review.image} alt="" className="w-full h-72 items-center text-center mt-3 " /></div>
                     <div className="flex justify-center mb-5">
                         <Rating
                             style={{ maxWidth: 140 }}

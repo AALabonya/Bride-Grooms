@@ -8,6 +8,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const CheckOutForm = () => {
@@ -18,34 +19,26 @@ const CheckOutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth()
+    // console.log("email",user?.email);
     const axiosSecure = useAxiosSecure()
 
     const { id } = useParams()
-    console.log(id);
+    // console.log(id);
 
     const { data: allBioData = [] } = useQuery({
-        queryKey: ['premiumRequest'],
+        queryKey: ['bioDataAll'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/allBioData')
+            const res = await axiosSecure.get('/bioDataAll')
             return res.data;
         }
 
     })
     console.log(allBioData);
-    const userId = allBioData?.find(myId => myId?.userEmail == user?.email)?.biodataId;
-    console.log(userId);
+    const userId = allBioData?.find(myId => myId?.userEmail == user?.email).biodataId;
+    // console.log("now",userId);
      const needUser = allBioData?.find(need=> need?.biodataId == id);
-    console.log(needUser);
-    // const requestData = {
-    //     requesterId: userId,
-    //     needId: id,
-    //     requestEmail: user?.email,
-    //     date: new Date().toLocaleDateString(),
-    //     status: "pending",
-    //     price: price,
-
-    // }
-    // console.log(requestData);
+    // console.log("neet",needUser);
+  
     let price = 500
     useEffect(() => {
 
@@ -132,10 +125,13 @@ const CheckOutForm = () => {
     return (
 
         <div>
-            <div className="flex justify-center p-10 mx-auto">
+           <Helmet>
+        <title>BrideAndGrooms | CheckOut form</title>
+      </Helmet>
+            <div className="flex justify-center p-5 mx-auto">
                 <div className=" bg-white">
-                    <form onSubmit={handleSubmit} className="p-16 ">
-                        <h1 className="text-center">Form</h1>
+                    <form onSubmit={handleSubmit} className="p-10 ">
+                        <h1 className="text-center mb-4 font-semibold text-emerald-900 text-lg">Pay  Tk.<span className="text-red-500">500</span> to see full biodata</h1>
                         <div>
                             <label htmlFor="biodataId">Biodata Contact ID</label>
                             <input type="text" id="biodataId" value={id} {...register("biodataId")} readOnly className='w-full mt-2 mb-5 px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900' />
