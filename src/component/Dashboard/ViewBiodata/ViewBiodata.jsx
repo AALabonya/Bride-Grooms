@@ -16,7 +16,7 @@ const ViewBiodata = () => {
         }
 
     })
-    console.log(allBioData);
+ 
 
     const requestedData = {
         biodataId: allBioData?.biodataId,

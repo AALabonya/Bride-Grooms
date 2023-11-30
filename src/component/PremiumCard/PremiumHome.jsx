@@ -15,25 +15,23 @@ const PremiumHome = () => {
         }
 
     })
-     console.log("premium", allBioDataPremium);
+
 
      if(isLoading){
         return <Loading></Loading>
      }
 
-    //  const premiumData =allBioData.filter(all=>all.accountType ==='premium')
-    //  console.log("premium collection",premiumData);
     return (
         <div>
-            <SectionTitle subHeading={"profiles"} heading={"premium member"}/>
+            <SectionTitle subHeading={"Profiles"} heading={"premium member"}/>
             <div className="flex justify-center">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 mx-auto ">
           {  
-          allBioDataPremium?.slice(0, 6).map(premium=><div key={premium._id} className="max-w-sm p-3 bg-white space-y-4 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+          allBioDataPremium?.slice(0, 6).map(premium=><div key={premium._id} className="max-w-sm p-3 border border-amber-700 bg-white space-y-4 shadow-2xl shadow-red-300  overflow-hidden rounded-lg dark:bg-gray-900 dark:text-gray-100">
           <div>
               <img src={premium.image} alt="" className="w-full h-[400px] dark:bg-gray-500" />
-              <h4 className="mb-1 text-xl font-semibold text-center">BiodataId:{premium.biodataId} </h4>
-              <p className="text-sm dark:text-gray-400 text-center">BiodataType: {premium.biodataType}</p>
+              <h4 className="mb-1 text-xl font-semibold text-center">Biodata Id:{premium.biodataId} </h4>
+              <p className="text-sm dark:text-gray-400 text-center">Biodata Type: {premium.biodataType}</p>
               <p className="text-sm dark:text-gray-400 text-center">Age :{premium.age}</p>
               <p className="text-sm dark:text-gray-400 text-center">Permanent Division: {premium.permanentDivision}</p>
               <p className="text-sm dark:text-gray-400 text-center">Occupation :{premium.occupation}</p>

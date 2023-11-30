@@ -16,10 +16,10 @@ const EditBiodata = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
     const [bioData, refetch, isLoading] = useManageUser()
-    console.log(bioData);
+
 
     const userAnyBiodataOrNot =bioData?.find(data => data?.userEmail === user?.email);
-    console.log(userAnyBiodataOrNot);
+
 
     const onSubmit = async (data) => {
         //image upload to imgbb and then get an url

@@ -19,11 +19,11 @@ const CheckOutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth()
-    // console.log("email",user?.email);
+
     const axiosSecure = useAxiosSecure()
 
     const { id } = useParams()
-    // console.log(id);
+
 
     const { data: allBioData = [] } = useQuery({
         queryKey: ['bioDataAll'],
@@ -33,11 +33,11 @@ const CheckOutForm = () => {
         }
 
     })
-    console.log(allBioData);
+
     const userId = allBioData?.find(myId => myId?.userEmail == user?.email).biodataId;
-    // console.log("now",userId);
+
      const needUser = allBioData?.find(need=> need?.biodataId == id);
-    // console.log("neet",needUser);
+
   
     let price = 500
     useEffect(() => {

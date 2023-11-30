@@ -18,17 +18,12 @@ const BioDatas = () => {
   const [check, setCheck] = useState('')
   const [totalData, setTotalData] = useState(0)
   const [page, setPage] = useState(0)
-
   const [minAge, setMinAge] = useState(null);
   const [maxAge, setMaxAge] = useState(null);
   const [selectDafultValue, setSelectDafultValue] = useState();
-  console.log("gggggggg", minAge);
-  console.log("hlw", maxAge);
-  const totalPage = Math.ceil(parseInt(totalData / 7));
+  const totalPage = Math.ceil(parseInt(totalData / 6));
   const countableBtn = [...Array(totalPage).keys()]
   axiosSecure("/allBioDataCount").then((res) => setTotalData(res.data.count))
-  console.log("total", totalData);
-
  
   const { data: allBioData = [], refetch, isLoading } = useQuery({
     queryKey: ['allBioData', check, checkGender, page],
@@ -53,7 +48,7 @@ const BioDatas = () => {
     setMinAge(event.target.value)
     setCheck("")
     setCheckGender("")
-
+    setPage(0)
 
   }
   const handleMaxAge = (event) => {
@@ -61,6 +56,7 @@ const BioDatas = () => {
     setMaxAge(event.target.value)
     setCheck("")
     setCheckGender("")
+    setPage(0)
   }
 
 
@@ -68,8 +64,11 @@ const BioDatas = () => {
   const handleRefetch = () => {
     refetch()
     setSelectDafultValue(true)
-    console.log("click");
+    setPage(0)
+    
   }
+
+
 
   if (isLoading) {
     return <Loading></Loading>
@@ -216,7 +215,7 @@ const BioDatas = () => {
 
 
 
-                    <h4 className="mb-1 text-lg font-semibold text-center mt-2">BiodataId: {all.biodataId} </h4>
+                    <h4 className="mb-1 text-lg font-semibold text-center mt-2">Biodata Id: {all.biodataId} </h4>
                     <p className="text-sm dark:text-gray-400 text-center">BiodataType: {all.biodataType}</p>
                     <p className="text-sm dark:text-gray-400 text-center">Age: {all.age}</p>
                     <p className="text-sm dark:text-gray-400 text-center">Permanent Division: {all.permanentDivision}</p>

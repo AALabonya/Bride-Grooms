@@ -36,18 +36,16 @@ const RouteStory = () => {
         }
 
     })
-    console.log(reviews)
-
+ 
+    const handleOpenData = (fav) => {
+        handleOpen()
+        setModalData(fav)
+    }
 
     if (isLoading) {
         return <Loading></Loading>
     }
 
-
-    const handleOpenData = (fav) => {
-        handleOpen()
-        setModalData(fav)
-    }
     return (
 
         <div>

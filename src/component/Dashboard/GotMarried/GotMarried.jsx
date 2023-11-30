@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
@@ -48,7 +49,7 @@ const GotMarried = () => {
         })
 
     }
-    console.log("log with image url", res.data);
+
     }
 
 

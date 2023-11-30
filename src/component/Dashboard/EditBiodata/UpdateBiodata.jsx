@@ -12,7 +12,7 @@ const UpdateBiodata = ({ userAnyBiodataOrNot, user}) => {
     const axiosSecure =useAxiosSecure()
     
     const onSubmit = async (data) => {
-        console.log('Data:', data);
+       
     try{
        
             const updateOne = {

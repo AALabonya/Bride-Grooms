@@ -13,7 +13,7 @@ const FavouritesBiodata = () => {
         }
 
     })
-    console.log(favorite);
+
     const handleDeleteFav= fav =>{
         Swal.fire({
             title: 'Are you sure?',

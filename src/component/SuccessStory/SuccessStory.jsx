@@ -27,7 +27,7 @@ const SuccessStory = (date) => {
         }
 
     })
- console.log(reviews)
+
  if(isLoading){
     return <Loading></Loading>
  }

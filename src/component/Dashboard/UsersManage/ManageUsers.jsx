@@ -22,14 +22,8 @@ const ManageUsers = () => {
         }
     })
 
-console.log(manageUser);
-//     const [displayData, setDisplayData] = useState([]);
-// console.log(displayData);
-//     useEffect(() => {
-//         setDisplayData(manageUser);
-//     }, [isLoading,manageUser])
-   
 
+   
     const handleSearch=e=>{
         e.preventDefault()
         const searchText = e.target.search.value

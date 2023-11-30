@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -55,7 +55,7 @@ export default function Navbar(props) {
                 >
                     <img
                         style={{ width: 55, marginRight: 10, borderRadius: '0.575rem', }}
-                        src="https://i.ibb.co/vYjWpTZ/bride.png"
+                        src="https://i.ibb.co/vx37cMR/vector-indian-wedding-invitation-card-template-679930-235.webp"
                         alt="Live from space album cover"
                         title="Shrimp and Chorizo Paella"
                     />
@@ -114,7 +114,7 @@ export default function Navbar(props) {
                             >
                                 <img
                                     style={{ width: 55, marginRight: 10, borderRadius: '0.575rem', }}
-                                    src="https://i.ibb.co/vYjWpTZ/bride.png"
+                                    src="https://i.ibb.co/vx37cMR/vector-indian-wedding-invitation-card-template-679930-235.webp"
                                     alt="Live from space album cover"
                                     title="Shrimp and Chorizo Paella"
                                 />
