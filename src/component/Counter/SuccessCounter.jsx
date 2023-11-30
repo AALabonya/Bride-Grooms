@@ -2,7 +2,6 @@
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import "./SuccessCounter.css"
-import CountUp from 'react-countup';
 const SuccessCounter = () => {
    
     return (
@@ -20,39 +19,21 @@ const SuccessCounter = () => {
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
                                 <img src="https://i.ibb.co/vVyCfmV/girl-cartoon-characters-3.jpg" alt="" className="rounded-full h-32" />
                                 <div className="rounded-full border ">
-                                <CountUp start={0} end={1300} delay={3}>
-                                    {({ countUpRef }) => (
-                                        <div>
-                                            <span ref={countUpRef} />
-                                        </div>
-                                    )}
-                                </CountUp>
+                                  <h1>1130</h1>
                                 </div>
                                 <p className="text-2xl lg:text-2xl">Girls Biodata</p>
                             </div>
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
                             <img src="https://i.ibb.co/k3Pjwry/channels4-profile.jpg" alt="" className="rounded-full h-32" />
                             <div className="rounded-full border ">
-                                <CountUp start={0} end={1500} delay={3}>
-                                    {({ countUpRef }) => (
-                                        <div>
-                                            <span ref={countUpRef} />
-                                        </div>
-                                    )}
-                                </CountUp>
+                               <h1>1500</h1>
                                 </div>
                                 <p className="text-2xl lg:text-2xl">Boys Biodata</p>
                             </div>
                             <div className="flex flex-col justify-start m-2 lg:m-6 text-2xl lg:text-2xl">
                             <img src="https://i.ibb.co/vm04G4v/couple-bride-groom-cartoon-design-wedding-marriage-love-celebration-invitation-engagement-theme-vect.webp" alt="" className="rounded-full h-32" />
                             <div className="rounded-full border ">
-                                <CountUp start={0} end={2000} delay={3}>
-                                    {({ countUpRef }) => (
-                                        <div>
-                                            <span ref={countUpRef} />
-                                        </div>
-                                    )}
-                                </CountUp>
+                             <h1>2000</h1>
                                 </div>
                                 <p className="text-2xl lg:text-4xl">Marriages</p>
                             </div>

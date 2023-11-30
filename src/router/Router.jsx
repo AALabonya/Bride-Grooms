@@ -108,7 +108,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:"gotMarried",
-                element:<GotMarried/>
+                element:<PrivateRoute><GotMarried/></PrivateRoute>
             }
         ]
     }
