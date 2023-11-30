@@ -59,7 +59,7 @@ const About = () => {
                                     Matchmaking: We provide personalized matchmaking services catering to various communities, preferences, and backgrounds.
                                     Profiles: Members can create detailed profiles highlighting their interests, values, and preferences.
                                     Compatibility Matching: Utilizing advanced algorithms, we facilitate matches based on compatibility factors, enhancing the likelihood of successful unions.
-                                    Privacy & Security: Ensuring the utmost confidentiality and safety of our members' information is our top priority</p>
+                                    Privacy & Security: Ensuring the utmost confidentiality and safety of our members information is our top priority</p>
                             </div>
                         </div>
                     </div>

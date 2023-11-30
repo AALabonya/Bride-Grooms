@@ -71,11 +71,11 @@ const Router = createBrowserRouter([
             //admin route 
             {
                 path: "adminDashboard",
-                element:<PrivateRoute><AdminRoute><AdminDashboard/></AdminRoute></PrivateRoute>
+                element:<AdminRoute><AdminDashboard/></AdminRoute>
             },
             {
                 path: "manageUsers",
-                element:<PrivateRoute><AdminRoute><ManageUsers/></AdminRoute></PrivateRoute>
+                element:<AdminRoute><ManageUsers/></AdminRoute>
             },
             {
                 path: "approvedPremium",

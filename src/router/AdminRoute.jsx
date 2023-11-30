@@ -14,7 +14,7 @@ const AdminRoute = ({children}) => {
         return <Loading/>
        }
 
-     if(user || isAdmin){
+     if(user && isAdmin){
         return children
      }  
 

@@ -8,24 +8,6 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
-// import PiChart from "./PiChart";
-// import ApexCharts from "apexcharts";
-// import { Cell, PieChart, Pie, Legend } from 'recharts';
-// import React from "react";
-// export const data = [
-// 	["Task", "Hours per Day"],
-// 	["Work", 11],
-// 	["Eat", 2],
-// 	["Commute", 2],
-// 	["Watch TV", 2],
-// 	["Sleep", 7],
-//   ];
-//   export const options = {
-// 	title: "My Daily Activities",
-// //   };
-// import { Chart } from "react-google-charts";
-// import { useEffect, useState } from "react";
-// import Loading from "../../../pages/Loading";
 import { PieChart, Pie, Cell, Legend } from 'recharts';
 import Loading from "../../../pages/Loading";
 import { Helmet } from "react-helmet-async";
@@ -44,54 +26,6 @@ const AdminDashboard = () => {
 
 	})
 	console.log(statistic);
-	const { data: result = [] } = useQuery({
-		queryKey: ['statistic-result'],
-		queryFn: async () => {
-			const res = await axiosPublic.get("/statistic-result")
-			return res.data
-		}
-	})
-	console.log(result);
-	// const [mongoDBData, setMongoDBData] = useState(result);
-	// useEffect(() => {
-	//     const series = mongoDBData.map((item) => item.totalRevenue);
-	//     const labels = mongoDBData.map((item) => item.category);
-	//     const quantities = mongoDBData.map((item) => item.quantity);
-	//     const accounts = mongoDBData.map((item) => item.account);
-
-	//     const options = {
-	//       series: series,
-	//       chart: {
-	//         width: 380,
-	//         type: 'pie',
-	//       },
-	//       labels: labels,
-	//       responsive: [{
-	//         breakpoint: 480,
-	//         options: {
-	//           chart: {
-	//             width: 200
-	//           },
-	//           legend: {
-	//             position: 'bottom'
-	//           }
-	//         }
-	//       }],
-	//       tooltip: {
-	//         y: {
-	//           formatter: function(value, { seriesIndex, dataPointIndex, w }) {
-	//             return `${w.config.labels[dataPointIndex]} - Quantity: ${quantities[dataPointIndex]}, Account: ${accounts[dataPointIndex]}`;
-	//           }
-	//         }
-	//       }
-	//     };
-
-	//     const chart = new ApexCharts(document.querySelector("#chart"), options);
-	//     chart.render();
-
-	//     // Clean up the chart when component unmounts
-	//     return () => chart.destroy();
-	//   }, [mongoDBData]);
 	const data = [
 		{ name: 'Male', value: parseInt(statistic?.userMale) },
 		{ name: 'Female', value: parseInt(statistic?.userFemale) },
@@ -131,9 +65,9 @@ const AdminDashboard = () => {
 					}
 				</h2>
 				<SectionTitle subHeading={"Admin Dashboard"} heading={"All Statistics Here"}></SectionTitle>
-				<div className="flex justify-center">
-				
-						<section className="p-6 my-6 dark:bg-gray-800 dark:text-gray-100">
+				<div className="flex md:flex sm:flex-col lg:justify-center lg:flex ">
+					<div className="lg:flex">
+						<div className="p-6 my-6 dark:bg-gray-800 dark:text-gray-100">
 
 							<div className="container grid grid-cols-1 gap-4 mx-auto sm:grid-cols-2 xl:grid-cols-3">
 
@@ -184,7 +118,7 @@ const AdminDashboard = () => {
 									</div>
 								</div>
 							</div>
-						</section>
+						</div>
 						<div className="w-1/2">
 							<PieChart width={400} height={400}>
 								<Pie
@@ -209,6 +143,7 @@ const AdminDashboard = () => {
 				</div>
 			</div>
 
+		</div>
 	);
 };
 
