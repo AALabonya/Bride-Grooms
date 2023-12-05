@@ -60,7 +60,7 @@ export default function Navbar(props) {
                         title="Shrimp and Chorizo Paella"
                     />
                     <div>
-                        <h3 style={{ color: 'green', fontWeight: 'bold' }} >BrideAndGrooms</h3>
+                        <h3 style={{ color: 'green', fontWeight: 'bold' }} >Bride&Grooms</h3>
 
                     </div>
                 </CardMedia>
@@ -119,7 +119,7 @@ export default function Navbar(props) {
                                     title="Shrimp and Chorizo Paella"
                                 />
                                 <div>
-                                    <h3 style={{ color: 'green', fontWeight: 'bold' }} >BrideAndGrooms</h3>
+                                    <h3 style={{ color: 'green', fontWeight: 'bold' }} >Bride&Grooms</h3>
 
                                 </div>
                             </CardMedia>

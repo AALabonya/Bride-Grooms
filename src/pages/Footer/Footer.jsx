@@ -9,7 +9,7 @@ const Footer = () => {
                         <div className="flex items-center justify-center w-24 h-12 rounded-full dark:bg-violet-400">
                             <img src="https://i.ibb.co/vx37cMR/vector-indian-wedding-invitation-card-template-679930-235.webp" alt="" className="rounded-md bg-transparent" />
                         </div>
-                        <span className="self-center text-2xl font-semibold">BrideAndGrooms</span>
+                        <span className="self-center text-2xl font-semibold">Bride&Grooms</span>
                     </a>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
@@ -78,7 +78,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center dark:text-gray-300">© 2023 BrideAndGrooms. All rights reserved.</div>
+            <div className="py-6 text-sm text-center dark:text-gray-300">© 2023 Bride&Grooms. All rights reserved.</div>
         </footer>
     );
 };

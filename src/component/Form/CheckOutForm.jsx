@@ -23,7 +23,7 @@ const CheckOutForm = () => {
     const axiosSecure = useAxiosSecure()
 
     const { id } = useParams()
-
+  console.log("id",id);
 
     const { data: allBioData = [] } = useQuery({
         queryKey: ['bioDataAll'],
@@ -34,7 +34,7 @@ const CheckOutForm = () => {
 
     })
 
-    const userId = allBioData?.find(myId => myId?.userEmail == user?.email).biodataId;
+    const userId = allBioData?.find(myId => myId?.userEmail == user?.email)?.biodataId;
 
      const needUser = allBioData?.find(need=> need?.biodataId == id);
 
