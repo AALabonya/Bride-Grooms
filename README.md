@@ -8,11 +8,15 @@
  ## Project Features
 
  - The website home page is device responsive.
- - Implement dashboard features and use the admin verify system in client sites and also server-side through JWT token.
-- Implement payment methods by using React Stripe.
-- Implement tanstack query in all the data fetching functionality.
+ - Implemented dashboard features and use the admin verify system in client sites  and also server-side through JWT token.
+- Implemented payment methods by using React Stripe.
+- Implemented tanstack query in all the data fetching functionality.
+- Implemented pagination at the Biodatas page.
+- Authentication are applied by using firebase.
+- Using vercel for server side deployment.
 
-# Technology I used :
+
+# Technology I used 
 
 - React
 - Axios
@@ -21,7 +25,8 @@
 - Material UI
 - React Hook Form
 - React Helmet
-- sweetalert2 
+- sweetalert2
+- React Stripe 
 - Express JS
 - MongoDB
 - Firebase(authentication)
