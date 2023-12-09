@@ -1,5 +1,5 @@
 ## Bride&Grooms
-#### Bride&Grooms (Matrimony - an online platform where people can choose her life partner)
+#### Bride&Grooms (Matrimony - an online platform where people can choose his/her life partner).This site has separate dashboard for both admin and user. There is also a system to take premium membership.
 
 - [Live Site Link (Netlify)](https://transcendent-stardust-3e6ba6.netlify.app/)
 - [Client Site Repo](https://github.com/AALabonya/Bride-Grooms)
