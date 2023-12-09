@@ -12,4 +12,18 @@
 - Implement payment methods by using React Stripe.
 - Implement tanstack query in all the data fetching functionality.
 
+# Technology I used :
 
+- React
+- Axios
+- Tanstack Query
+- Tailwind CSS
+- Material UI
+- React Hook Form
+- React Helmet
+- sweetalert2 
+- Express JS
+- MongoDB
+- Firebase(authentication)
+- Netlify
+- Vercel
