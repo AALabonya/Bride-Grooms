@@ -3,11 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y, } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/bundle'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 const Banner = () => {
   return (
-    <div className='overflow-x-hidden' >
+    <div className='overflow-x-hidden' data-aos="zoom-in" >
       <Swiper
         slidesPerView={1}
         spaceBetween={20}
@@ -17,7 +19,7 @@ const Banner = () => {
         className="mySwiper">
 
         <SwiperSlide>
-          <div className='overflow-x-hidden'>
+          <div className='overflow-x-hidden' data-aos="zoom-in">
             <div className="relative mx-auto overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src=" https://i.ibb.co/qrRNQK8/wedding-archway-backyard-happy-wedding-couple-outdoors-before-wedding-ceremony-1.jpg"
@@ -26,8 +28,10 @@ const Banner = () => {
             <div>
               <div className='text-center flex justify-center overflow-x-hidden'>
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
-                <span className="font-bold  text-fuchsia-800 text-2xl">Worlds most trusted Matrimonal portal.</span>
+              <h1 data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" data-aos-duration="1000"  className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
+                <span data-aos="zoom-in-down" className="font-bold  text-fuchsia-800 text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
                 
 
@@ -36,7 +40,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
+          <div className='overflow-x-hidden' data-aos="zoom-in-down">
             <div className="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src="https://i.ibb.co/BBBcMBB/beautiful-wedding-walk-nature-ukraine-sumy.jpg"
@@ -45,7 +49,9 @@ const Banner = () => {
             <div>
               <div className='text-center flex justify-center '>
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
+              <h1  data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
                 <span className="font-bold  text-fuchsia-800  text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
               </div>
@@ -53,7 +59,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
+          <div className='overflow-x-hidden' data-aos="zoom-in-down">
             <div className="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src="https://i.ibb.co/fkDd8P9/banner4.webp"
@@ -62,7 +68,9 @@ const Banner = () => {
             <div>
               <div className='text-center flex justify-center '>
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
+              <h1  data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
                 <span className="font-bold  text-fuchsia-800  text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
               </div>
@@ -70,7 +78,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
+          <div className='overflow-x-hidden' data-aos="zoom-in-down">
             <div className="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src="https://i.ibb.co/BBBcMBB/beautiful-wedding-walk-nature-ukraine-sumy.jpg"
@@ -79,7 +87,9 @@ const Banner = () => {
             <div>
               <div className='text-center flex justify-center '>
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
+              <h1  data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
                 <span className="font-bold  text-fuchsia-800  text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
               </div>
@@ -87,7 +97,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
+          <div className='overflow-x-hidden' data-aos="zoom-in-down">
             <div className="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src="https://i.ibb.co/ZNgbngG/90065-haldi-ceremony-rimi-sen-1.webp"
@@ -96,7 +106,9 @@ const Banner = () => {
             <div>
               <div className='text-center flex justify-center'>
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
+              <h1  data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span> Here</h1>
                 <span className="font-bold  text-fuchsia-800 text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
               </div>
@@ -104,7 +116,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div>
+          <div className='overflow-x-hidden' data-aos="zoom-in-down">
             <div className="relative mx-4 -mt-6 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
               <img
                 src="https://i.ibb.co/dWxdH0j/banner3.jpg"
@@ -114,7 +126,9 @@ const Banner = () => {
               <div className='text-center flex justify-center'>
 
               <div className="absolute top-[35%]  ml-5 mt-6">
-              <h1 className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
+              <h1  data-aos="zoom-in-down"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine" className="lg:text-7xl font-bold text-white mt-16 mb-5"> Find your <br/> <span className="text-red-700">Right Match</span>Here</h1>
                 <span className="font-bold  text-fuchsia-800  text-2xl">Worlds most trusted Matrimonal portal.</span>
                  </div>
               </div>

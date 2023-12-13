@@ -4,6 +4,7 @@ import HowItWorks from "../../component/HowItWorks/HowItWorks";
 import PremiumHome from "../../component/PremiumCard/PremiumHome";
 import SuccessStory from "../../component/SuccessStory/SuccessStory";
 import Banner from "./Banner";
+import ContactForm from "../Contact/ContactForm";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
            <PremiumHome/>
             <HowItWorks/>
             <SuccessCounter/>
+            <ContactForm/>
             <SuccessStory/>
         </div>
     );
