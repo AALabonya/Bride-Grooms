@@ -4,6 +4,7 @@ import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import { Link } from "react-router-dom";
 import Loading from "../../pages/Loading";
 import { motion } from "framer-motion"
+
 const PremiumHome = () => {
     const axiosPublic =useAxiosPublic()
 

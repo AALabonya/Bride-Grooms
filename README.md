@@ -14,6 +14,7 @@
 - Implemented pagination at the Biodatas page.
 - Authentication are applied by using firebase.
 - Using vercel for server side deployment.
+- Implemented framer-motion in the premium section.
 
 
 # Technology I used 

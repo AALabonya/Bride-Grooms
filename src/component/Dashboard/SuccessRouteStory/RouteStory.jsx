@@ -28,6 +28,7 @@ const RouteStory = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [modalData, setModalData] = useState('')
+    
     const { data: reviews = [], isLoading } = useQuery({
         queryKey: ['/reviewsStory'],
         queryFn: async () => {
