@@ -29,6 +29,7 @@
 - sweetalert2
 - React Stripe 
 - Express JS
+- Framer motion
 - MongoDB
 - Firebase(authentication)
 - Netlify
